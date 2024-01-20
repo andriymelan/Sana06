@@ -9,17 +9,19 @@ namespace ClassLibrary
     public class Entrant:Person
     {
         protected int ZNO_Points {  get; set; }
-        protected float EducationPoints { get; set; }
+        protected double EducationPoints { get; set; }
         protected string Institution {  get; set; }
         public Entrant()
         {
             ZNO_Points = 100;
             EducationPoints = 4;
-            Institution = "ZSTU";
+            Institution = "lyceum #1 of Zhytomyr";
         }
-        public Entrant(string lastName, string firstName, DateOnly birthday, int zNO_Points, float educationPoints, string institution)
+        public Entrant(string lastName, string firstName, DateOnly birthday, int zNO_Points, double educationPoints, string institution)
             :base(lastName, firstName, birthday)
         {
+            if (200<zNO_Points || 100<ZNO_Points  || 12<educationPoints || educationPoints<1||institution=="")
+                throw new Exception("Incorrectly entered data");
             ZNO_Points = zNO_Points;
             EducationPoints = educationPoints;
             Institution = institution;

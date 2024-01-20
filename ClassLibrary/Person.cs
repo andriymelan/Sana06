@@ -2,9 +2,9 @@
 {
     public class Person
     {
-        public string LastName {  get; set; }
-        public string FirstName { get; set; }
-        public DateOnly Birthday { get; set; }
+        protected string LastName {  get; set; }
+        protected string FirstName { get; set; }
+        protected DateOnly Birthday { get; set; }
         public Person()
         {
             LastName = "Petrenko";
@@ -13,11 +13,13 @@
         }
         public Person(string lastName, string firstName, DateOnly birthday)
         {
+            if (lastName == "" || firstName == "")
+                throw new Exception("Incorrectly entered data");
             LastName = lastName;
             FirstName = firstName;
             Birthday = birthday;
         }
-        public string ShowInfo()
+        public virtual string ShowInfo()
         {
             return $"{LastName} {FirstName} {Birthday}";
         }

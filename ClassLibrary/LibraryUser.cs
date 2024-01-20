@@ -11,16 +11,18 @@ namespace ClassLibrary
     {
         protected int TicketNumber { get; set; }
         protected DateOnly IssuanceDate {  get; set; }
-        protected float MonthContribution {  get; set; }
+        protected double MonthContribution {  get; set; }
         public LibraryUser()
         {
             TicketNumber = 100000;
             IssuanceDate = new DateOnly(2000,1,1);
             MonthContribution = 0;
         }
-        public LibraryUser(string lastName, string firstName, DateOnly birthday, int ticketNumber, DateOnly issuanceDate, float monthContribution)
+        public LibraryUser(string lastName, string firstName, DateOnly birthday, int ticketNumber, DateOnly issuanceDate, double monthContribution)
             :base(lastName, firstName, birthday)
         {
+            if (ticketNumber < 0 || monthContribution < 0)
+                throw new Exception("Incorrectly entered data");
             TicketNumber = ticketNumber;
             IssuanceDate = issuanceDate;
             MonthContribution = monthContribution;

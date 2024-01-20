@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    public  class Student:Person
+    public class Student:Person
     {
         protected int Course {  get; set; }
         protected string Group {  get; set; }
@@ -22,6 +22,8 @@ namespace ClassLibrary
         public Student(string lastName, string firstName, DateOnly birthday, int course, string group, string faculty, string university)
             :base(lastName, firstName, birthday)
         {
+            if (4 < course || 1 < course || group == "" || faculty == "" || university == "")
+                throw new Exception("Incorrectly entered data");
             Course = course;
             Group = group;
             Faculty = faculty;
