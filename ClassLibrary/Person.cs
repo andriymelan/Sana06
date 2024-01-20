@@ -2,9 +2,9 @@
 {
     public class Person
     {
-        protected string LastName {  get; set; }
-        protected string FirstName { get; set; }
-        protected DateOnly Birthday { get; set; }
+        public string LastName {  get; set; }
+        public string FirstName { get; set; }
+        public DateOnly Birthday { get; set; }
         public Person()
         {
             LastName = "Petrenko";
@@ -17,7 +17,7 @@
             FirstName = firstName;
             Birthday = birthday;
         }
-        virtual public string ShowInfo()
+        public string ShowInfo()
         {
             return $"{LastName} {FirstName} {Birthday}";
         }
